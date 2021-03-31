@@ -51,7 +51,9 @@ class DetailsFragment : Fragment() {
 
     private fun setupNavigation() {}
 
-    private fun setupViews() {}
+    private fun setupViews() {
+        binding.transaction = args.transaction
+    }
 
     private companion object {
         const val TAG: String = "DetailsFragment"
