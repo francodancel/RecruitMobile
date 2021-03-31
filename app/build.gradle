@@ -18,6 +18,8 @@ android {
         versionCode 1
         versionName "1.0"
 
+        buildConfigField "String", "API_ENDPOINT", "\"https://60220907ae8f8700177dee68.mockapi.io/api/v1/\""
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 

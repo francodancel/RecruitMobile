@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.sample.app.R
 import com.sample.app.databinding.FragmentListBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,6 +24,15 @@ class ListFragment : Fragment() {
 
     // Views
     private lateinit var binding: FragmentListBinding
+
+    // RecyclerView components
+    private val transactionAdapter: TransactionAdapter by lazy {
+        TransactionAdapter(viewModel = viewModel)
+    }
+
+    private val transactionItemDecoration: DividerItemDecoration by lazy {
+        DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,7 +59,12 @@ class ListFragment : Fragment() {
 
     private fun setupNavigation() {}
 
-    private fun setupViews() {}
+    private fun setupViews() {
+        with (binding.recyclerView) {
+            addItemDecoration(transactionItemDecoration)
+            adapter = transactionAdapter
+        }
+    }
 
     private companion object {
         const val TAG: String = "ListFragment"
