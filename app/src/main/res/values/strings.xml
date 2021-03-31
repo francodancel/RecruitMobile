@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Transaction Test</string>
+
+    <!-- Navigation -->
+    <string name="destination_title_transaction_list">Transactions</string>
+    <string name="destination_title_transaction_details">Transaction Details</string>
 </resources>

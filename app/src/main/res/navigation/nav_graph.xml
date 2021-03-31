@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
+    app:startDestination="@id/dest_transaction_list">
+
+    <fragment
+        android:id="@+id/dest_transaction_list"
+        android:name="com.sample.app.ui.transactions.list.ListFragment"
+        android:label="@string/destination_title_transaction_list" />
+
+    <!--
+    <fragment
+        android:id="@+id/dest_transaction_details"
+        android:name="com.sample.app.ui.transactions.details.DetailsFragment"
+        android:label="@string/destination_title_transaction_details" >
+
+    </fragment>
+    -->
+
+</navigation>
