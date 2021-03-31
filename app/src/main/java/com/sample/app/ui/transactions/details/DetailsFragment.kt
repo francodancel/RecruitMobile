@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.sample.app.R
 import com.sample.app.databinding.FragmentDetailsBinding
+import com.sample.app.ui.transactions.details.models.Transaction
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -52,7 +53,9 @@ class DetailsFragment : Fragment() {
     private fun setupNavigation() {}
 
     private fun setupViews() {
-        binding.transaction = args.transaction
+        binding.transaction = Transaction.newInstance(
+            transaction = args.transaction
+        )
     }
 
     private companion object {

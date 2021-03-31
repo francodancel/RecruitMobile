@@ -6,12 +6,14 @@
 
     <data>
         <import type="android.view.View" />
+        <import type="androidx.core.content.ContextCompat" />
+
         <variable
             name="viewModel"
             type="com.sample.app.ui.transactions.details.DetailsViewModel" />
         <variable
             name="transaction"
-            type="com.sample.app.infrastructure.data.network.TransactionModel" />
+            type="com.sample.app.ui.transactions.details.models.Transaction" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -65,19 +67,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                        android:text="@{String.format(@string/label_credit, transaction.credit)}"
+                        android:textColor="@{ContextCompat.getColor(context, transaction.getTransactionColour())}"
+                        android:text="@{String.format(@string/label_transaction_amount, transaction.getAmount())}"
                         tools:text="Credit: 25.00" />
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="8dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                        android:text="@{String.format(@string/label_debit, transaction.debit)}"
-                        tools:text="Debit: 25.00"/>
 
                 </LinearLayout>
 

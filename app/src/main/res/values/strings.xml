@@ -2,8 +2,7 @@
     <string name="app_name">Transaction Test</string>
 
     <!-- Labels -->
-    <string name="label_credit">Credit: %1$.2f</string>
-    <string name="label_debit">Debit: %1$.2f</string>
+    <string name="label_transaction_amount">Amount: %1$.2f</string>
 
     <!-- Navigation -->
     <string name="destination_title_transaction_list">Transactions</string>
