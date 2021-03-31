@@ -1,20 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/nav_graph"
     app:startDestination="@id/dest_transaction_list">
 
     <fragment
         android:id="@+id/dest_transaction_list"
         android:name="com.sample.app.ui.transactions.list.ListFragment"
-        android:label="@string/destination_title_transaction_list" />
+        android:label="@string/destination_title_transaction_list"
+        tools:layout="@layout/fragment_list">
 
-    <!--
+        <action
+            android:id="@+id/nav_action_view_transaction_details"
+            app:destination="@id/dest_transaction_details" />
+
+    </fragment>
+
     <fragment
         android:id="@+id/dest_transaction_details"
         android:name="com.sample.app.ui.transactions.details.DetailsFragment"
-        android:label="@string/destination_title_transaction_details" >
+        android:label="@string/destination_title_transaction_details"
+        tools:layout="@layout/fragment_details" >
+
+        <argument
+            android:name="transaction"
+            app:argType="com.sample.app.infrastructure.data.network.TransactionModel" />
 
     </fragment>
-    -->
 
 </navigation>

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sample.app.databinding.ItemTransactionBinding
 import com.sample.app.infrastructure.adapters.BindableListAdapter
 import com.sample.app.infrastructure.data.network.TransactionModel
+import com.sample.app.infrastructure.listeners.ItemSelectedListener
 
 class TransactionAdapter(
     private val viewModel: ListViewModel
@@ -21,7 +22,8 @@ class TransactionAdapter(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
-            )
+            ),
+            itemSelectedListener = viewModel.transactionItemSelectedListener
         )
     }
 
@@ -31,10 +33,12 @@ class TransactionAdapter(
     }
 
     class ViewHolder(
-        private val binding: ItemTransactionBinding
+        private val binding: ItemTransactionBinding,
+        private val itemSelectedListener: ItemSelectedListener<TransactionModel>
     ): RecyclerView.ViewHolder(binding.root) {
         fun bind(model: TransactionModel) {
-            binding.message = model.summary
+            binding.model = model
+            binding.itemSelectedListener = itemSelectedListener
         }
     }
 
